@@ -1,0 +1,34 @@
+{{- range .Values.storageClasses }}
+---
+apiVersion: "storage.k8s.io/v1"
+kind: "StorageClass"
+metadata:
+  name: {{ .name }}
+  labels:
+    helm.sh/chart: {{ include "storageclasses.chart" $ }}
+    app.kubernetes.io/name: {{ .name }}
+    app.kubernetes.io/instance: {{ $.Release.Name }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+  {{- if .annotations }}
+  annotations:
+    {{- toYaml .annotations | nindent 4 }}
+  {{- end }}
+provisioner: {{ required "provisioner is required" .provisioner }}
+{{- if .volumeBindingMode }}
+volumeBindingMode: {{ .volumeBindingMode }}
+{{- end }}
+{{- if .allowVolumeExpansion }}
+allowVolumeExpansion: {{ .allowVolumeExpansion }}
+{{- end }}
+{{- if .reclaimPolicy }}
+reclaimPolicy: {{ .reclaimPolicy }}
+{{- end }}
+{{- if .parameters }}
+parameters:
+  {{- toYaml .parameters | nindent 2 }}
+{{- end }}
+{{- if .allowedTopologies }}
+allowedTopologies:
+  {{- toYaml .allowedTopologies | nindent 2 }}
+{{- end }}
+{{- end }}

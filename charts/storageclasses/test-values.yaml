@@ -1,0 +1,12 @@
+storageClasses:
+  - name: test-name
+    annotations:
+      test-annotation: "test-value"
+    provisioner: "test-provisioner"
+    parameters:
+      parameter1: "value1"
+    allowedTopologies:
+      - matchLabelExpressions:
+        - key: "some-node-label"
+          values:
+            - "some-value"
