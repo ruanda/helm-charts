@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  storageclasses:
+  - apiVersion: v2
+    created: "2023-12-10T22:27:09.945229513Z"
+    description: Helm Chart for defining Storage Classes
+    digest: 5d84caea3b68da7d4b1b381bfcdf702e891b8bc4af19f99b1149eac4fd49b58e
+    home: https://github.com/ruanda/helm-chars
+    keywords:
+    - storageclass
+    maintainers:
+    - name: Mateusz Hromada
+      url: https://github.com/ruanda
+    name: storageclasses
+    type: application
+    urls:
+    - https://github.com/ruanda/helm-charts/releases/download/storageclasses-0.1.0/storageclasses-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-12-10T22:27:09.945235504Z"
